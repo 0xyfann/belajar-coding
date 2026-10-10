@@ -3,35 +3,67 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Pertamaku</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website Belajarku</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       background: #101827;
       color: white;
-      padding: 50px 20px;
+      padding: 40px 15px;
     }
 
-    h1 {
-      color: #60a5fa;
+    .kartu {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 16px;
+      max-width: 350px;
+      margin: auto;
+    }
+
+    h1 { color: #60a5fa; }
+
+    #angka {
+      font-size: 50px;
+      margin: 20px;
     }
 
     button {
       padding: 12px 20px;
-      background: #2563eb;
-      color: white;
+      margin: 5px;
       border: none;
       border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
-  <h1>Halo, Dunia!</h1>
-  <p>Ini website pertama saya yang dibuat lewat HP Android.</p>
-  <button onclick="alert('Berhasil! Kamu sudah belajar coding!')">
-    Klik Saya
-  </button>
+  <div class="kartu">
+    <h1>Website Belajarku</h1>
+    <p>Penghitung angka pertama saya!</p>
+
+    <div id="angka">0</div>
+
+    <button onclick="ubahAngka(1)">Tambah +</button>
+    <button onclick="ubahAngka(-1)">Kurang -</button>
+    <button onclick="resetAngka()">Reset</button>
+  </div>
+
+  <script>
+    let angka = 0;
+
+    function ubahAngka(nilai) {
+      angka = angka + nilai;
+      document.getElementById("angka").textContent = angka;
+    }
+
+    function resetAngka() {
+      angka = 0;
+      document.getElementById("angka").textContent = angka;
+    }
+  </script>
 </body>
 </html>
