@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Website Belajarku</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,57 +13,79 @@
       background: #101827;
       color: white;
       padding: 40px 15px;
+      transition: 0.3s;
     }
 
     .kartu {
-      background: #1e293b;
-      padding: 25px;
-      border-radius: 16px;
       max-width: 350px;
       margin: auto;
+      padding: 25px;
+      border-radius: 16px;
+      background: #1e293b;
     }
 
-    h1 { color: #60a5fa; }
-
-    #angka {
-      font-size: 50px;
-      margin: 20px;
+    h1 {
+      color: #60a5fa;
     }
 
     button {
-      padding: 12px 20px;
+      padding: 12px 16px;
       margin: 5px;
       border: none;
       border-radius: 8px;
       background: #2563eb;
       color: white;
-      font-size: 16px;
+      font-size: 15px;
+    }
+
+    .terang {
+      background: #f1f5f9;
+      color: #111827;
+    }
+
+    .terang .kartu {
+      background: white;
+    }
+
+    .terang h1 {
+      color: #2563eb;
     }
   </style>
 </head>
+
 <body>
   <div class="kartu">
     <h1>Website Belajarku</h1>
-    <p>Penghitung angka pertama saya!</p>
+    <p>Saya sedang belajar coding!</p>
 
-    <div id="angka">0</div>
+    <h2 id="angka">0</h2>
 
     <button onclick="ubahAngka(1)">Tambah +</button>
     <button onclick="ubahAngka(-1)">Kurang -</button>
     <button onclick="resetAngka()">Reset</button>
+
+    <hr>
+
+    <button onclick="gantiTema()">
+      Ganti Mode 🌙
+    </button>
   </div>
 
   <script>
     let angka = 0;
 
     function ubahAngka(nilai) {
-      angka = angka + nilai;
+      angka += nilai;
       document.getElementById("angka").textContent = angka;
     }
 
     function resetAngka() {
       angka = 0;
       document.getElementById("angka").textContent = angka;
+    }
+
+    function gantiTema() {
+      document.body.classList.toggle("terang");
     }
   </script>
 </body>
