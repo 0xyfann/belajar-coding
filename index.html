@@ -96,11 +96,15 @@
   </div>
 
     <h1>IRFAN</h1>
-    <p class="deskripsi">
-      Halo! Selamat datang di website pribadi saya.
-      Saya sedang belajar coding dan membuat
-      hal-hal baru menggunakan teknologi.
-    </p>
+    
+<p class="deskripsi">
+  Halo, saya sedang belajar coding!
+</p>
+
+<p class="mengetik">
+  <span id="teks-mengetik"></span><span class="kursor">|</span>
+</p>
+  
 
     <a class="tombol" href="https://github.com/">
       GitHub Saya
@@ -114,5 +118,45 @@
       © 2026 Profil Pribadiku
     </footer>
   </div>
+
+<script>
+  const kalimat = [
+    "Saya suka teknologi 💻",
+    "Saya sedang belajar coding 🚀",
+    "Selamat datang di profil saya!"
+  ];
+
+  const tempat = document.getElementById("teks-mengetik");
+
+  let indeksKalimat = 0;
+  let indeksHuruf = 0;
+  let menghapus = false;
+
+  function efekMengetik() {
+    const teks = kalimat[indeksKalimat];
+
+    tempat.textContent = menghapus
+      ? teks.substring(0, indeksHuruf - 1)
+      : teks.substring(0, indeksHuruf + 1);
+
+    indeksHuruf += menghapus ? -1 : 1;
+
+    let jeda = menghapus ? 40 : 90;
+
+    if (!menghapus && indeksHuruf === teks.length) {
+      menghapus = true;
+      jeda = 1300;
+    } else if (menghapus && indeksHuruf === 0) {
+      menghapus = false;
+      indeksKalimat = (indeksKalimat + 1) % kalimat.length;
+      jeda = 400;
+    }
+
+    setTimeout(efekMengetik, jeda);
+  }
+
+  efekMengetik();
+</script>
+</body>
 </body>
 </html>
